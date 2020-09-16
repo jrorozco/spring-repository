@@ -2,16 +2,18 @@ package com.bolsadeideas.springboot.di.app.models.domain;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.context.annotation.RequestScope;
 
 @Repository
+@RequestScope
 public class Cliente {
 	
 	
 	//estos valores se definene en el .properties en el archivo de configuracion de spring
-	@Value("$Cliente.nombre")
+	@Value("${cliente.nombre}")
 	private String nombre;
 	
-	@Value("$Cliente.apellido")
+	@Value("${cliente.apellido}")
 	private String apellido;
 	
 	public Cliente() {

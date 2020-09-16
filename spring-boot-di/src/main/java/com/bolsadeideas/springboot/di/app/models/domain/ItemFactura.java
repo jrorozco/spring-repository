@@ -8,6 +8,13 @@ public class ItemFactura {
 	public ItemFactura() {
 	}
 
+	public ItemFactura(Producto producto, Integer cantidad) {
+		this.producto = producto;
+		this.cantidad = cantidad;
+	}
+
+
+
 	public Producto getProducto() {
 		return producto;
 	}
@@ -29,7 +36,9 @@ public class ItemFactura {
 		return "ItemFactura [producto=" + producto + ", cantidad=" + cantidad + "]";
 	}
 	
-	
+	public Double calcularImporte() {
+		return cantidad * producto.getPrecio();
+	}
 	
 	
 	

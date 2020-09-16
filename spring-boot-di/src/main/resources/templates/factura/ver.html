@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelead.org">
+<head>
+<meta charset="UTF-8">
+<title ht:text="${titulo}"></title>
+</head>
+<body>
+
+<h1 th:text="${titulo}" ></h1>
+<h3 th:utext="${factura.descripcion}"></h3>
+<div>
+	Cliente: <span th:utext="${factura.cliente.nombre + ' '  + factura.cliente.apellido}" ></span>
+</div>
+<h4>Detalle de la Factura</h4>
+<table>
+	<thead>
+		<tr>
+			<th>Producto</th>
+			<th>Precio</th>
+			<th>Cantidad</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+	<tbody>
+<!-- 	
+	en esta parte recorremos los items de la factura que estan en el objeto factura 
+	con el metodo each y van en al etiqueta que se repetira en este casi <tr> y
+	los agregamos a su etiqueta hijo <td> todos los items
+-->
+		<tr th:each="item: ${factura.items}" >
+			<td th:text="${item.producto.nombre} "></td>
+			<td th:text="${item.producto.precio}" ></td>
+			<td th:text="${item.cantidad} "></td>
+			<!-- Cuando ingresamo un metodo que no es get le tenemos que poner los parentesis ()-->
+			<td th:text="${item.calcularImporte()} "></td>
+			<!-- Esto lo vamos a pasar a un metodo para que este mas limpio -->
+<!-- 			<td th:text="${item.producto.precio * item.cantidad }" ></td> -->
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>
