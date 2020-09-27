@@ -6,24 +6,60 @@
 </head>
 <body>
 <h3 th:text="${titulo}" ></h3>
-	<form th:action="@{/form}" method="post">
+	<form th:action="@{/form}"  th:object="${usuario}" method="post"> 
+	<!-- Para usar le object de thymeleaf vamos a usar su propiedad th:objet="usario" que es el objeto que nos llega del controlador -->
 
+		<div>
+			<label for="identificador">Identificador</label>
+			<div>
+				<input type="text" th:field="*{identificador}" id="nombre" />
+			</div>
+			<div th:if="${#fields.hasErrors('identificador')}" th:errors="*{identificador}"></div>
+		</div>
+		
+		<div>
+			<label for="nombre">Nombre</label>
+			<div>
+				<input type="text" th:field="*{nombre}" id="nombre" />
+			</div>
+			<div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+		</div>
+		
+		<div>
+			<label for="apellido">Apellido</label>
+			<div>
+				<input type="text" th:field="*{apellido}" id="apellido" />
+			</div>
+			<div th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+		</div>
+		
 		<div>
 			<label for="username">User Name</label>
 			<div>
-				<input type="text" name="username" id="username" />
+<!-- 				<input type="text" name="username" id="username" th:value="${usuario.username}"/> 
+					comentamos esto por que usaremos el th:object declarando th:field="*{username}" y quitamos el name="" y el th:value="${usuario.username}" por que el object que esta en la etiqueta form hace referencia al objeto"
+-->
+				<input type="text" th:field="*{username}" id="username" />
 			</div>
+<!-- 			<div th:if="${error !=null && error.containsKey('username')}" th:text="${error.get('username')}"></div> 
+				se cambia para usar #fields que es un helper para thymeleaf
+-->
+			<div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
 		</div>
 		<div>
 			<label for="password">Password</label>
 			<div>
-				<input type="password" name="password" id="password" />
+				<input type="password" th:field="*{password}" id="password" />
+<!-- 				<div th:if="${error !=null && error.containsKey('password')}" th:text="${error.get('password')}"></div> -->
+				<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 			</div>
 		</div>
 		<div>
 			<label for="email">Email</label>
 			<div>
-				<input type="text" name="email" id="email" />
+				<input type="text"  th:field="*{email}" id="email" />
+<!-- 				<div th:if="${error !=null && error.containsKey('email')}" th:text="${error.get('email')}"></div> -->
+				<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 			</div>
 		</div>
 

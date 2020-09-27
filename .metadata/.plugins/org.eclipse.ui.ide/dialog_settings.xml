@@ -2,11 +2,12 @@
 <section name="Workbench">
 	<list key="installedFeatures">
 		<item value="com.ianbrandt.tools.m2e.mdp.feature:0.0.4.201409291703"/>
+		<item value="io.emmet.eclipse:1.0.0.201401132323"/>
 		<item value="org.eclipse.buildship:3.1.4.v20200326-1743"/>
 		<item value="org.eclipse.egit.gitflow.feature:5.8.0.202006091008-r"/>
 		<item value="org.eclipse.egit:5.8.0.202006091008-r"/>
-		<item value="org.eclipse.emf.common:2.19.0.v20200324-0932"/>
-		<item value="org.eclipse.emf.ecore:2.22.0.v20200519-1135"/>
+		<item value="org.eclipse.emf.common:2.20.0.v20200822-0801"/>
+		<item value="org.eclipse.emf.ecore:2.23.0.v20200630-0516"/>
 		<item value="org.eclipse.epp.mpc:1.8.3.v20200526-1554"/>
 		<item value="org.eclipse.help:2.3.200.v20200604-0540"/>
 		<item value="org.eclipse.jdt:3.18.400.v20200604-0540"/>
